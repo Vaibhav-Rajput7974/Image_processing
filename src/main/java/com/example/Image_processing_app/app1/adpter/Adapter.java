@@ -3,6 +3,7 @@ package com.example.Image_processing_app.app1.adpter;
 import com.example.Image_processing_app.app1.Image;
 import com.example.Image_processing_app.app1.statePattern.TaxCalculator;
 import com.example.Image_processing_app.app1.statePattern.TaxCalculator2024;
+import com.example.Image_processing_app.app1.stratage.AwsService;
 import com.example.Image_processing_app.app1.stratage.ServiceProvider;
 
 public class Adapter implements ThirdParty {
@@ -66,4 +67,11 @@ public class Adapter implements ThirdParty {
     public int chargesForObjectDetection() {
         return tax.calculate(serviceProvider.chargesForObjectDetection());
     }
+
+    public static Adapter getAdapter() {
+        ServiceProvider awsService = new AwsService();
+        Adapter adapter = new Adapter(awsService); // adptor patter
+        return adapter;
+    }
+
 }

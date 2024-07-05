@@ -20,6 +20,7 @@ public class GenerateAl extends OperationDecorator {
     @Override
     public void process(Image image) {
         int charges = charges();
+        pay(charges);
         image.setChargesForProcessing(charges);
         if(operation != null) operation.process(image);
         thirdParty.generateAi(image);

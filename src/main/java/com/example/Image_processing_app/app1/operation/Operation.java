@@ -8,4 +8,6 @@ public interface Operation {
 
     void addOperation(Operation operation);
 
+    void pay(int charges);
+
 }

@@ -1,22 +1,8 @@
 package com.example.Image_processing_app;
 
-import com.example.Image_processing_app.app1.Command;
-import com.example.Image_processing_app.app1.Image;
-import com.example.Image_processing_app.app1.adpter.Adapter;
-import com.example.Image_processing_app.app1.decorator.OperationDecorator;
-import com.example.Image_processing_app.app1.operation.BackGroupRemove;
-import com.example.Image_processing_app.app1.operation.Crop;
-import com.example.Image_processing_app.app1.operation.Operation;
-import com.example.Image_processing_app.app1.statePattern.PayPal;
-import com.example.Image_processing_app.app1.statePattern.PaymentPlateForm;
-import com.example.Image_processing_app.app1.stratage.AwsService;
-import com.example.Image_processing_app.app1.stratage.ServiceProvider;
-import org.springframework.boot.CommandLineRunner;
+import com.example.Image_processing_app.app1.commandDecoder;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 @SpringBootApplication
 public class ImageProcessingAppApplication  {
@@ -44,7 +30,7 @@ public class ImageProcessingAppApplication  {
 		};
 
 		for (String command : commands){
-			Command.parseCommand(command);
+			commandDecoder.parseCommand(command);
 		}
 	}
 

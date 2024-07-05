@@ -19,10 +19,12 @@ public class BackGroupRemove extends OperationDecorator {
     @Override
     public void process(Image image) {
         int charges = charges();
+        pay(charges);
         image.setChargesForProcessing(charges);
         if(operation != null) operation.process(image);
         thirdParty.removeBackground(image);
     }
+
 
     @Override
     public int charges() {
@@ -30,9 +32,4 @@ public class BackGroupRemove extends OperationDecorator {
         if(operation != null) charges+=operation.charges();
             return charges + thirdParty.chargesForRemovingBackground();
     }
-
-//    @Override
-//    public void pay() {
-//        this.
-//    }
 }
