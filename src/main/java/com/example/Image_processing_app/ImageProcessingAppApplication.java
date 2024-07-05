@@ -40,7 +40,7 @@ public class ImageProcessingAppApplication  {
 				"crop --top 10 --right 10 --bottom 50 --left 50 image.jpg",
 				"remove-bg image.jpg",
 				" store --service google-drive --path /MyImages/result.jpg image.jpg",
-				"combine --operation1 remove-bg --operation2 resize --width 800 --height 600 image.jpg"
+				"combine --operation1 remove-bg--operation2 resize  image.jpg"
 		};
 
 		for (String command : commands){

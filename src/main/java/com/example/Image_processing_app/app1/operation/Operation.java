@@ -6,4 +6,6 @@ public interface Operation {
     void process(Image image);
     int charges();
 
+    void addOperation(Operation operation);
+
 }

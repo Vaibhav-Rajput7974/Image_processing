@@ -117,11 +117,13 @@ public class Command {
             String[] splitOperations = operations.split("--operation\\d+ ");
 
             // Print the split operations
-            List<Operation> opertionList  = new ArrayList<>();
+
+            Operation decoratedOperation = null;
             for (String operation : splitOperations) {
-                String commandType = operation.split(" ")[0];
-                Operation currentOperation ;
-                switch (commandType) {
+                Operation currentOperation = null;
+                System.out.println(operation);
+                switch (operation) {
+
                     case "resize":
                         currentOperation = new Resize(getAdapter()) ;
                         break;
@@ -129,29 +131,20 @@ public class Command {
                         currentOperation = new GenerateAl(getAdapter()) ;
                         break;
                     case "crop":
-                        opertionList.add(new Crop(getAdapter()) );
+                        currentOperation =  new Crop(getAdapter()) ;
                         break;
                     case "remove-bg":
-                        opertionList.add(new BackGroupRemove(getAdapter()) );
+                        currentOperation = new BackGroupRemove(getAdapter()) ;
                         break;
-                    default:
-                        System.out.println("Command not recognized: " + command);
                 }
-                if (operation == null){
-                    operation = currentOperation;
+                if (decoratedOperation == null){
+                    decoratedOperation = currentOperation;
                 }else {
-                    op
+                    decoratedOperation.addOperation(currentOperation);
                 }
             }
-
-            Operation combinopertion = null;
-            for (Operation operation : opertionList){
-                if(combinopertion == null){
-                    combinopertion = operation;
-                }else {
-                    combinopertion.
-                }
-            }
+            if (decoratedOperation != null)
+                decoratedOperation.process(new Image(fileName,null,"JPG","12","12"));
         }
     }
 
