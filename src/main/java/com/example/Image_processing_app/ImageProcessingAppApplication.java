@@ -1,22 +1,10 @@
 package com.example.Image_processing_app;
 
-import com.example.Image_processing_app.app1.commandDecoder;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class ImageProcessingAppApplication  {
-
-//	public static void main(String[] args) {
-////		ServiceProvider awsService = new AwsService();
-////		Adapter adapter = new Adapter(awsService);
-////		Operation backgroundRemover = new BackGroupRemove(adapter,new Crop(adapter));
-////		int charges = backgroundRemover.charges();
-////		PaymentPlateForm paypal = new PayPal();
-////		paypal.pay(charges);
-////		backgroundRemover.process(new Image("animal",null,"PNG"));
-//////		OperationDecorator cropandGenerateAI = new
-//	}
 
 
 	public static void main(String[] args) {
@@ -30,9 +18,7 @@ public class ImageProcessingAppApplication  {
 		};
 
 		for (String command : commands){
-			commandDecoder.parseCommand(command);
+			CommandDecoder.parseCommand(command);
 		}
 	}
-
-
 }
