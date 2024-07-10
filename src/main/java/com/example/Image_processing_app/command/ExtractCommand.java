@@ -1,6 +1,6 @@
 package com.example.Image_processing_app.command;
 
-public class ExtractCommand implements Command{
+public class ExtractCommand extends CombineCommand {
 
     ImageProcess imageProcess;
 
@@ -8,8 +8,14 @@ public class ExtractCommand implements Command{
         this.imageProcess = imageProcess;
     }
 
+    public ExtractCommand(Command command) {
+        super(command);
+        imageProcess = new ImageProcess();
+    }
+
     @Override
-    public void execute(String command, String pattern) {
-        imageProcess.handleExtend(command, pattern);
+    public void execute() {
+        super.execute();
+        imageProcess.handleExtend();
     }
 }

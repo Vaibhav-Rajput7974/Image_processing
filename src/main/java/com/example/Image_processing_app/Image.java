@@ -18,6 +18,13 @@ public class Image {
     }
 
     private byte[] image;
+
+    public Image(String name, byte[] image, String formate) {
+        this.name = name;
+        this.image = image;
+        this.formate = formate;
+    }
+
     private String formate;
     private String height;
     private String width;

@@ -1,15 +1,25 @@
 package com.example.Image_processing_app.command;
 
-public class CombineCommand implements Command{
+public abstract class CombineCommand implements Command {
 
-    ImageProcess imageProcess;
+    protected Command command;
 
-    public CombineCommand(ImageProcess imageProcess) {
-        this.imageProcess = imageProcess;
+    public CombineCommand(Command command) {
+        this.command = command;
+    }
+
+    protected CombineCommand() {
     }
 
     @Override
-    public void execute(String command, String pattern) {
-        imageProcess.handleCombine(command, pattern);
+    public void addCommand(Command command) {
+        this.command = command;
     }
+
+    @Override
+    public void execute() {
+        if(command != null)
+            command.execute();
+    }
+
 }

@@ -1,14 +1,13 @@
 package com.example.Image_processing_app.command;
 
-public class ResizeCommand extends CombineCommand {
+public class RemoveBgCommand extends CombineCommand {
+    ImageProcess imageProcess ;
 
-    ImageProcess imageProcess;
-
-    public ResizeCommand(ImageProcess imageProcess) {
+    public RemoveBgCommand(ImageProcess imageProcess) {
         this.imageProcess = imageProcess;
     }
 
-    public ResizeCommand(Command command) {
+    public RemoveBgCommand(Command command) {
         super(command);
         imageProcess = new ImageProcess();
     }
@@ -16,6 +15,6 @@ public class ResizeCommand extends CombineCommand {
     @Override
     public void execute() {
         super.execute();
-        imageProcess.handleResize();
+        imageProcess.handleRemoveBg();
     }
 }
